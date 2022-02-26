@@ -33,3 +33,5 @@ Here are some ideas to get you started:
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=davbrito&langs_count=6)
 
 > Note: Still under construction... 🛠️⚙️
+
+All the stats are generated with [github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
