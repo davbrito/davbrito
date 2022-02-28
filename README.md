@@ -15,23 +15,23 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-
-![David's github stats](https://github-readme-stats.vercel.app/api?username=davbrito&show_icons=true)
+![David's github stats](assets/davbrito-stats.svg)
 
 ### My fav repos
 
-[![Codi Link](https://github-readme-stats.vercel.app/api/pin/?username=midudev&repo=codi.link)](https://github.com/midudev/codi.link)
+[![Codi Link](assets/midudev_codi.link-pin.svg)](https://github.com/midudev/codi.link)
 
-[![{fmt}](https://github-readme-stats.vercel.app/api/pin/?username=fmtlib&repo=fmt)](https://github.com/fmtlib/fmt)
+[![{fmt}](assets/fmtlib_fmt-pin.svg)](https://github.com/fmtlib/fmt)
 
-[![lit](https://github-readme-stats.vercel.app/api/pin/?username=lit&repo=lit)](https://github.com/lit/lit)
+[![lit](assets/lit_lit-pin.svg)](https://github.com/lit/lit)
 
-[![Radix UI Promitives 💖](https://github-readme-stats.vercel.app/api/pin/?username=radix-ui&repo=primitives)](https://github.com/radix-ui/primitives)
+[![Radix UI Primitives 💖](assets/radix-ui_primitives-pin.svg)](https://github.com/radix-ui/primitives)
 
-### Top languages on GitHub 
+### Top languages on GitHub
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=davbrito&langs_count=6)
+![Top Langs](assets/davbrito-top-langs.svg)
 
 > Note: Still under construction... 🛠️⚙️
 
-All the stats are generated with [github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
+All the stats are generated with
+[github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
