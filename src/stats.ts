@@ -2,7 +2,7 @@ import { getGithubReadmeStatsUrl } from "./github_readme_stats.ts";
 import { fetchAndSaveImage } from "./images.ts";
 
 export function createUserStatsImage(username: string) {
-  const url = getGithubReadmeStatsUrl("./stats/", {
+  const url = getGithubReadmeStatsUrl(".", {
     username,
     show_icons: "true",
   });
