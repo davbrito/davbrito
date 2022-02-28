@@ -1,0 +1,24 @@
+{
+  "favRepos": [
+    {
+      "name": "Codi Link",
+      "username": "midudev",
+      "repo": "codi.link"
+    },
+    {
+      "name": "{fmt}",
+      "username": "fmtlib",
+      "repo": "fmt"
+    },
+    {
+      "name": "lit",
+      "username": "lit",
+      "repo": "lit"
+    },
+    {
+      "name": "Radix UI Primitives 💖",
+      "username": "radix-ui",
+      "repo": "primitives"
+    }
+  ]
+}
