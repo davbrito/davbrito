@@ -1,0 +1,7 @@
+{
+  "importMap": "./import_map.json",
+  "tasks": {
+    "build": "deno run --allow-run --allow-read --allow-write=README.md,assets --allow-net --allow-env --unstable ./src/main.ts"
+  },
+  "compilerOptions": {}
+}

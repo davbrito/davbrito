@@ -1,69 +1,102 @@
-// @ts-check
+import { emptyDir } from "std/fs/empty_dir.ts";
+import { chunk } from "std/collections/chunk.ts";
+import { extract } from "std/encoding/front_matter/yaml.ts";
+import { readableStreamFromIterable } from "std/streams/mod.ts";
+import { z } from "https://esm.sh/zod@3.20.2";
 import { ASSETS_DIR } from "./constants.ts";
-import { createImage, createImageLink } from "./markdown.ts";
-import { createTopUserLanguagesImage } from "./top_langs.ts";
-import { emptyDir } from "fs/empty_dir.ts";
+import { FormatTransform } from "./format.ts";
+import { createImage } from "./markdown.ts";
 import { getPins } from "./pin.ts";
 import { createUserStatsImage } from "./stats.ts";
-import readmeData from "./data.json" assert { type: "json" };
+import { replaceTechIcons } from "./tech-icons.ts";
+import { createTopUserLanguagesImage } from "./top_langs.ts";
 
-const USERNAME = "davbrito";
+addEventListener("unhandledrejection", (event) => {
+  console.error(event.reason);
+  Deno.exit(1);
+});
 
 await emptyDir(ASSETS_DIR);
 
+const { username, favRepos, body } = await parseTemplate();
+
 const [pinImages, topLanguages, userStats] = await Promise.all([
-  Promise.all(getPins(readmeData.favRepos)),
-  createTopUserLanguagesImage(USERNAME),
-  createUserStatsImage(USERNAME),
+  Promise.all(getPins(favRepos)),
+  createTopUserLanguagesImage(username),
+  createUserStatsImage(username),
 ]);
 
-const markdown = `### Hi there 👋
-
-<!--
-**davbrito/davbrito** is a ✨ _special_ ✨ repository because its \`README.md\` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
-
-${
-  createImage({
+const templateContext = {
+  userStats: createImage({
     alt: "David's github stats",
     src: userStats,
-  })
+  }),
+  favRepos: `<table>${
+    chunk(pinImages, 3)
+      .map((row) => {
+        return `<tr>${
+          row
+            .map(({ imagePath, repoUrl, name }) => {
+              return (
+                `<td>` +
+                `<a href="${repoUrl}">` +
+                `<img src="${imagePath}" alt="${name}" />` +
+                `</a>` +
+                `</td>`
+              );
+            })
+            .join("")
+        }</tr>`;
+      })
+      .join("")
+  }</table>`,
+  topLanguages: createImage({ src: topLanguages, alt: "Top Langs" }),
+};
+
+function replaceTemlateContext(text: string) {
+  return text.replace(/\{\s*([a-zA-Z0-9_]+)\s*\}/g, (str, key) => {
+    if (!(key in templateContext)) return str;
+    return String(templateContext[key as keyof typeof templateContext]);
+  });
 }
 
-### My fav repos
+const final = [replaceTechIcons, replaceTemlateContext].reduce(
+  (acc, fn) => fn(acc),
+  body,
+);
 
-${
-  pinImages
-    .map(({ imagePath, repoUrl, name }) => {
-      return createImageLink({
-        imageSrc: imagePath,
-        linkHref: repoUrl,
-        altText: name,
-      });
-    })
-    .join("\n\n")
-}
+const file = await Deno.open("README.md", {
+  create: true,
+  write: true,
+  truncate: true,
+});
 
-### Top languages on GitHub 
-
-${createImage({ src: topLanguages, alt: "Top Langs" })}
-
-> Note: Still under construction... 🛠️⚙️
-
-All the stats are generated with [github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
-`;
-
-await Deno.writeTextFile("README.md", markdown, { create: true });
+await readableStreamFromIterable([final])
+  .pipeThrough(new TextEncoderStream())
+  .pipeThrough(new FormatTransform("md"))
+  .pipeTo(file.writable);
 
 console.log("README created successfuly 🎉");
+
+async function parseTemplate() {
+  const templateFile = await Deno.readTextFile(
+    new URL("./template.md", import.meta.url),
+  );
+
+  const { attrs, body } = extract(templateFile);
+
+  const attributes = z
+    .object({
+      username: z.string(),
+      favRepos: z.array(
+        z.object({
+          name: z.string(),
+          username: z.string(),
+          repo: z.string(),
+        }),
+      ),
+    })
+    .parse(attrs);
+
+  return { ...attributes, body };
+}

@@ -1,4 +1,4 @@
-import { join } from "path/mod.ts";
+import { join } from "std/path/mod.ts";
 import { ASSETS_DIR } from "./constants.ts";
 
 function getImagePath(filename: string) {
@@ -12,11 +12,9 @@ export async function fetchAndSaveImage(url: URL | string, filename: string) {
     },
   });
 
-  const data = new Uint8Array(await response.arrayBuffer());
-
   const imagePath = getImagePath(filename);
-
-  await Deno.writeFile(imagePath, data, { create: true });
+  const file = await Deno.open(imagePath, { create: true, write: true });
+  await response.body!.pipeTo(file.writable);
 
   return imagePath;
 }
