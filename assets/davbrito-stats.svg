@@ -9,7 +9,7 @@
         aria-labelledby="descId"
       >
         <title id="titleId">David Brito's GitHub Stats, Rank: A+</title>
-        <desc id="descId">Total Stars Earned: 9, Total Commits in 2022 : 9, Total PRs: 73, Total Issues: 28, Contributed to (last year): 25</desc>
+        <desc id="descId">Total Stars Earned: 10, Total Commits in 2022 : 10, Total PRs: 73, Total Issues: 28, Contributed to (last year): 25</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -67,7 +67,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 126.28027148697477;
+        stroke-dashoffset: 126.31629696177075;
       }
     }
   
@@ -160,7 +160,7 @@
         x="219.01"
         y="12.5"
         data-testid="stars"
-      >9</text>
+      >10</text>
     </g>
   </g><g transform="translate(0, 25)">
     <g class="stagger" style="animation-delay: 600ms" transform="translate(25, 0)">
@@ -175,7 +175,7 @@
         x="219.01"
         y="12.5"
         data-testid="commits"
-      >142</text>
+      >145</text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="stagger" style="animation-delay: 750ms" transform="translate(25, 0)">
