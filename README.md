@@ -33,7 +33,7 @@ and TypeScript
 
 ### My fav repos
 
-<table><tr><td><a href="https://github.com/midudev/codi.link"><img src="assets/midudev_codi.link-pin.svg" alt="Codi Link" /></a></td><td><a href="https://github.com/fmtlib/fmt"><img src="assets/fmtlib_fmt-pin.svg" alt="{fmt}" /></a></td><td><a href="https://github.com/lit/lit"><img src="assets/lit_lit-pin.svg" alt="lit" /></a></td></tr><tr><td><a href="https://github.com/radix-ui/primitives"><img src="assets/radix-ui_primitives-pin.svg" alt="Radix UI Primitives 💖" /></a></td></tr></table>
+<table><tr><td><a href="https://github.com/midudev/codi.link"><img src="assets/midudev_codi.link-pin.svg" alt="Codi Link" /></a></td><td><a href="https://github.com/fmtlib/fmt"><img src="assets/fmtlib_fmt-pin.svg" alt="{fmt}" /></a></td><td><a href="https://github.com/lit/lit"><img src="assets/lit_lit-pin.svg" alt="lit" /></a></td></tr><tr><td><a href="https://github.com/radix-ui/primitives"><img src="assets/radix-ui_primitives-pin.svg" alt="Radix UI Primitives 💖" /></a></td><td><a href="https://github.com/ariakit/ariakit"><img src="assets/ariakit_ariakit-pin.svg" alt="Ariakit" /></a></td><td><a href="https://github.com/pmndrs/zustand"><img src="assets/pmndrs_zustand-pin.svg" alt="Zustand" /></a></td></tr><tr><td><a href="https://github.com/TanStack/table"><img src="assets/TanStack_table-pin.svg" alt="TanStack Table" /></a></td></tr></table>
 
 ### Top languages on GitHub
 
