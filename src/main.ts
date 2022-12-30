@@ -2,7 +2,7 @@ import { emptyDir } from "std/fs/empty_dir.ts";
 import { chunk } from "std/collections/chunk.ts";
 import { extract } from "std/encoding/front_matter/yaml.ts";
 import { readableStreamFromIterable } from "std/streams/mod.ts";
-import { z } from "https://esm.sh/zod@3.20.2";
+import { z } from "npm:zod";
 import { ASSETS_DIR } from "./constants.ts";
 import { FormatTransform } from "./format.ts";
 import { createImage } from "./markdown.ts";
@@ -31,25 +31,21 @@ const templateContext = {
     alt: "David's github stats",
     src: userStats,
   }),
-  favRepos: `<table>${
-    chunk(pinImages, 3)
-      .map((row) => {
-        return `<tr>${
-          row
-            .map(({ imagePath, repoUrl, name }) => {
-              return (
-                `<td>` +
-                `<a href="${repoUrl}">` +
-                `<img src="${imagePath}" alt="${name}" />` +
-                `</a>` +
-                `</td>`
-              );
-            })
-            .join("")
-        }</tr>`;
-      })
-      .join("")
-  }</table>`,
+  favRepos: `<table>${chunk(pinImages, 3)
+    .map((row) => {
+      return `<tr>${row
+        .map(({ imagePath, repoUrl, name }) => {
+          return (
+            `<td>` +
+            `<a href="${repoUrl}">` +
+            `<img src="${imagePath}" alt="${name}" />` +
+            `</a>` +
+            `</td>`
+          );
+        })
+        .join("")}</tr>`;
+    })
+    .join("")}</table>`,
   topLanguages: createImage({ src: topLanguages, alt: "Top Langs" }),
 };
 
@@ -62,7 +58,7 @@ function replaceTemlateContext(text: string) {
 
 const final = [replaceTechIcons, replaceTemlateContext].reduce(
   (acc, fn) => fn(acc),
-  body,
+  body
 );
 
 const file = await Deno.open("README.md", {
@@ -80,7 +76,7 @@ console.log("README created successfuly 🎉");
 
 async function parseTemplate() {
   const templateFile = await Deno.readTextFile(
-    new URL("./template.md", import.meta.url),
+    new URL("./template.md", import.meta.url)
   );
 
   const { attrs, body } = extract(templateFile);
@@ -93,7 +89,7 @@ async function parseTemplate() {
           name: z.string(),
           username: z.string(),
           repo: z.string(),
-        }),
+        })
       ),
     })
     .parse(attrs);
