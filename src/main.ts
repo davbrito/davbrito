@@ -1,9 +1,7 @@
-import { emptyDir } from "std/fs/empty_dir.ts";
+import { z } from "npm:zod";
 import { chunk } from "std/collections/chunk.ts";
 import { extract } from "std/encoding/front_matter/yaml.ts";
 import { readableStreamFromIterable } from "std/streams/mod.ts";
-import { z } from "npm:zod";
-import { ASSETS_DIR } from "./constants.ts";
 import { FormatTransform } from "./format.ts";
 import { createImage } from "./markdown.ts";
 import { getPins } from "./pin.ts";
@@ -15,8 +13,6 @@ addEventListener("unhandledrejection", (event) => {
   console.error(event.reason);
   Deno.exit(1);
 });
-
-await emptyDir(ASSETS_DIR);
 
 const { username, favRepos, body } = await parseTemplate();
 

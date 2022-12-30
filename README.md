@@ -29,15 +29,15 @@ and TypeScript
 
 ---
 
-![David's github stats](assets/davbrito-stats.svg)
+![David's github stats](https://github-readme-stats.vercel.app/api/?username=davbrito&show_icons=true)
 
 ### My fav repos
 
-<table><tr><td><a href="https://github.com/midudev/codi.link"><img src="assets/midudev_codi.link-pin.svg" alt="Codi Link" /></a></td><td><a href="https://github.com/fmtlib/fmt"><img src="assets/fmtlib_fmt-pin.svg" alt="{fmt}" /></a></td><td><a href="https://github.com/lit/lit"><img src="assets/lit_lit-pin.svg" alt="lit" /></a></td></tr><tr><td><a href="https://github.com/radix-ui/primitives"><img src="assets/radix-ui_primitives-pin.svg" alt="Radix UI Primitives 💖" /></a></td><td><a href="https://github.com/ariakit/ariakit"><img src="assets/ariakit_ariakit-pin.svg" alt="Ariakit" /></a></td><td><a href="https://github.com/pmndrs/zustand"><img src="assets/pmndrs_zustand-pin.svg" alt="Zustand" /></a></td></tr><tr><td><a href="https://github.com/TanStack/table"><img src="assets/TanStack_table-pin.svg" alt="TanStack Table" /></a></td></tr></table>
+<table><tr><td><a href="https://github.com/midudev/codi.link"><img src="https://github-readme-stats.vercel.app/api/pin/?username=midudev&repo=codi.link" alt="Codi Link" /></a></td><td><a href="https://github.com/fmtlib/fmt"><img src="https://github-readme-stats.vercel.app/api/pin/?username=fmtlib&repo=fmt" alt="{fmt}" /></a></td><td><a href="https://github.com/lit/lit"><img src="https://github-readme-stats.vercel.app/api/pin/?username=lit&repo=lit" alt="lit" /></a></td></tr><tr><td><a href="https://github.com/radix-ui/primitives"><img src="https://github-readme-stats.vercel.app/api/pin/?username=radix-ui&repo=primitives" alt="Radix UI Primitives 💖" /></a></td><td><a href="https://github.com/ariakit/ariakit"><img src="https://github-readme-stats.vercel.app/api/pin/?username=ariakit&repo=ariakit" alt="Ariakit" /></a></td><td><a href="https://github.com/pmndrs/zustand"><img src="https://github-readme-stats.vercel.app/api/pin/?username=pmndrs&repo=zustand" alt="Zustand" /></a></td></tr><tr><td><a href="https://github.com/TanStack/table"><img src="https://github-readme-stats.vercel.app/api/pin/?username=TanStack&repo=table" alt="TanStack Table" /></a></td></tr></table>
 
 ### Top languages on GitHub
 
-![Top Langs](assets/davbrito-top-langs.svg)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=davbrito&langs_count=6&layout=compact)
 
 > All the stats are generated with
 > [github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
