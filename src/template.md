@@ -13,6 +13,15 @@ favRepos:
   - name: Radix UI Primitives 💖
     username: radix-ui
     repo: primitives
+  - name: Ariakit
+    username: ariakit
+    repo: ariakit
+  - name: Zustand
+    username: pmndrs
+    repo: zustand
+  - name: TanStack Table
+    username: TanStack
+    repo: table
 ---
 
 <!--
