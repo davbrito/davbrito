@@ -13,19 +13,51 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-### Hi there! 👋
+## Hi there! I'm David, a web developer. 👋
 
-I'm David Brito. I'm a Web Developer. Specialized on frontend development.
-
-My preffered languages are JavaScript and TypeScript. And I like to always learn
-new things. My most used tools are currently React ⚛️, Node
+Welcome to my GitHub! I'm a passionate web developer with experience in both
+frontend and backend development. I love working with JavaScript/TypeScript and
+have skills in a variety of tools and technologies, including React ⚛️,
+TypeScript
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="ts" style="width: 1em; height: 1em; vertical-align: middle;" />,
+Node.js
 <img src="https://camo.githubusercontent.com/342d0b4d47c3c88c7542ddeb7bc8f7e4b6dbf8b496ca4f4f6c66a11659bbc180/68747470733a2f2f6e6f64656a732e6f72672f7374617469632f696d616765732f66617669636f6e732f6170706c652d746f7563682d69636f6e2e706e67" alt="node" style="width: 1em; height: 1em; vertical-align: middle;" />,
-Deno 🦕, Vite
-<img src="https://vitejs.dev/logo.svg" alt="vite" style="width: 1em; height: 1em; vertical-align: middle;" />,
-PostCSS
-<img src="https://github.com/postcss/brand/raw/master/dist/postcss-logo-symbol.svg" alt="postcss" style="width: 1em; height: 1em; vertical-align: middle;" />
-and TypeScript
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="ts" style="width: 1em; height: 1em; vertical-align: middle;" />.
+Deno 🦕, Next.js, Vite
+<img src="https://vitejs.dev/logo.svg" alt="vite" style="width: 1em; height: 1em; vertical-align: middle;" />
+and PostCSS
+<img src="https://github.com/postcss/brand/raw/master/dist/postcss-logo-symbol.svg" alt="postcss" style="width: 1em; height: 1em; vertical-align: middle;" />.
+
+#### Personal Projects
+
+- [IteretiJS](https://github.com/davbrito/iteretijs): is a set of JavaScript
+  iterator, generator, and web stream utilities. It's a lightweight library that
+  provides a convenient way to work with streams and iterators in JavaScript,
+  allowing you to write more efficient and maintainable code. It includes
+  utilities such as map, filter, reduce, take, and skip, as well as utilities
+  for working with web streams.
+- [Minisignal](https://github.com/davbrito/minisignal): A tiny preact
+  signal-like library. It provides a simple way to create and manage state in
+  your React applications, allowing you to easily update your UI based on
+  changes in your application state, while avoiding unnecessary rerenders. It's
+  lightweight and easy to use.
+- [dbds](https://github.com/davbrito/dbds): DBDS is a C library of common data
+  structures, including binary trees, vectors, sorted sets, and sorted maps. It
+  provides a fast and efficient way to work with data in C programs, making it a
+  great choice for performance-critical applications. It's also designed to be
+  easy to use and integrate into your existing C codebase.
+
+I'm proud of these projects and hope you find them useful. If you have any
+questions or feedback, feel free to reach out to me.
+
+#### Contact me
+
+If you'd like to collaborate on any of my projects or have any questions about
+my skills, feel free to get in touch. You can find me on Twitter as
+[@dv_brito](https://twitter.com/dv_brito). You can also visit my
+[LinkedIn profile](https://www.linkedin.com/in/dv-brito/) to learn more about my
+experience and skills.
+
+Thanks for visiting my GitHub!
 
 ---
 
