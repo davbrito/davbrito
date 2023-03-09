@@ -4,13 +4,14 @@ const iconUrls = {
   vite: "https://vitejs.dev/logo.svg",
   postcss:
     "https://github.com/postcss/brand/raw/master/dist/postcss-logo-symbol.svg",
-  node: "https://github.com/gilbarbara/logos/blob/1f372be75689d73cae89b6de808149b606b879e1/logos/nodejs-icon.svg",
-  ts: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg",
+  node: "https://raw.githubusercontent.com/gilbarbara/logos/main/logos/nodejs-icon.svg",
+  ts: "https://raw.githubusercontent.com/gilbarbara/logos/main/logos/typescript-icon-round.svg",
+  react: "https://github.com/gilbarbara/logos/raw/main/logos/react.svg",
+  js: "https://github.com/gilbarbara/logos/blob/main/logos/javascript.svg",
+  nextjs: "https://github.com/gilbarbara/logos/raw/main/logos/nextjs-icon.svg",
 };
 
 const emojis = {
-  react: "⚛️",
-  js: "🟨",
   deno: "🦕",
   python: "🐍",
   cpp: "🟣",
