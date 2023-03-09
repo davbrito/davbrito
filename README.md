@@ -17,12 +17,15 @@ Here are some ideas to get you started:
 
 Welcome to my GitHub! I'm a passionate web developer with experience in both
 frontend and backend development. I love working with JavaScript/TypeScript and
-have skills in a variety of tools and technologies, including React ⚛️,
+have skills in a variety of tools and technologies, including React
+<img src="https://github.com/gilbarbara/logos/raw/main/logos/react.svg" alt="react" style="width: 1em; height: 1em; vertical-align: middle;" />,
 TypeScript
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="ts" style="width: 1em; height: 1em; vertical-align: middle;" />,
+<img src="https://raw.githubusercontent.com/gilbarbara/logos/main/logos/typescript-icon-round.svg" alt="ts" style="width: 1em; height: 1em; vertical-align: middle;" />,
 Node.js
-<img src="https://github.com/gilbarbara/logos/blob/1f372be75689d73cae89b6de808149b606b879e1/logos/nodejs-icon.svg" alt="node" style="width: 1em; height: 1em; vertical-align: middle;" />,
-Deno 🦕, Next.js, Vite
+<img src="https://raw.githubusercontent.com/gilbarbara/logos/main/logos/nodejs-icon.svg" alt="node" style="width: 1em; height: 1em; vertical-align: middle;" />,
+Deno 🦕, Next.js
+<img src="https://github.com/gilbarbara/logos/raw/main/logos/nextjs-icon.svg" alt="nextjs" style="width: 1em; height: 1em; vertical-align: middle;" />,
+Vite
 <img src="https://vitejs.dev/logo.svg" alt="vite" style="width: 1em; height: 1em; vertical-align: middle;" />
 and PostCSS
 <img src="https://github.com/postcss/brand/raw/master/dist/postcss-logo-symbol.svg" alt="postcss" style="width: 1em; height: 1em; vertical-align: middle;" />.
