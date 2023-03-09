@@ -21,7 +21,7 @@ have skills in a variety of tools and technologies, including React ⚛️,
 TypeScript
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="ts" style="width: 1em; height: 1em; vertical-align: middle;" />,
 Node.js
-<img src="https://camo.githubusercontent.com/342d0b4d47c3c88c7542ddeb7bc8f7e4b6dbf8b496ca4f4f6c66a11659bbc180/68747470733a2f2f6e6f64656a732e6f72672f7374617469632f696d616765732f66617669636f6e732f6170706c652d746f7563682d69636f6e2e706e67" alt="node" style="width: 1em; height: 1em; vertical-align: middle;" />,
+<img src="https://github.com/gilbarbara/logos/blob/1f372be75689d73cae89b6de808149b606b879e1/logos/nodejs-icon.svg" alt="node" style="width: 1em; height: 1em; vertical-align: middle;" />,
 Deno 🦕, Next.js, Vite
 <img src="https://vitejs.dev/logo.svg" alt="vite" style="width: 1em; height: 1em; vertical-align: middle;" />
 and PostCSS
