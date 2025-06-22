@@ -1,4 +1,4 @@
-import { createImage } from "./markdown.ts";
+import { createImage } from "./markdown.tsx";
 
 const iconUrls = {
   vite: "https://vitejs.dev/logo.svg",
@@ -28,10 +28,15 @@ const pattern = new RegExp(
 export function replaceTechIcons(text: string) {
   return text.replace(pattern, (original, tech) => {
     if (tech in iconUrls) {
-      const iconUrl = iconUrls[tech as keyof typeof iconUrls];
-      const style = "width: 1em; height: 1em; vertical-align: middle;";
-
-      return createImage({ src: iconUrl, alt: tech, style });
+      return createImage({
+        src: iconUrls[tech as keyof typeof iconUrls],
+        alt: tech,
+        style: {
+          width: "1em",
+          height: "1em",
+          verticalAlign: "middle",
+        },
+      });
     }
 
     if (tech in emojis) return emojis[tech as keyof typeof emojis];

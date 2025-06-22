@@ -1,11 +1,16 @@
 {
   "tasks": {
-    "build": "deno run --allow-read --allow-write=README.md --allow-run ./src/main.ts"
+    "build": "deno run --allow-read --allow-write=README.md --allow-run --allow-env=NODE_ENV ./src/main.ts"
   },
-  "compilerOptions": {},
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
+  },
   "lock": true,
   "imports": {
     "@std/collections": "jsr:@std/collections@^1.1.1",
-    "@std/front-matter": "jsr:@std/front-matter@^1.0.9"
+    "@std/front-matter": "jsr:@std/front-matter@^1.0.9",
+    "preact": "npm:preact@^10.26.9",
+    "preact-render-to-string": "npm:preact-render-to-string@^6.5.13"
   }
 }

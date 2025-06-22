@@ -1,8 +1,9 @@
-import { z } from "npm:zod";
 import { chunk } from "@std/collections/chunk";
 import { extract } from "jsr:@std/front-matter/yaml";
+import process from "node:process";
+import { z } from "npm:zod";
 import { FormatTransform } from "./format.ts";
-import { createImage } from "./markdown.ts";
+import { createImage } from "./markdown.tsx";
 import { getPins } from "./pin.ts";
 import { createUserStatsImage } from "./stats.ts";
 import { replaceTechIcons } from "./tech-icons.ts";
