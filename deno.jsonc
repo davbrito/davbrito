@@ -1,8 +1,10 @@
 {
-  "importMap": "./import_map.json",
   "tasks": {
     "build": "deno run --allow-run --allow-read --allow-write=README.md,assets --allow-net --allow-env --unstable ./src/main.ts"
   },
   "compilerOptions": {},
-  "lock": true
+  "lock": true,
+  "imports": {
+    "std": "https://deno.land/std@0.170.0"
+  }
 }
