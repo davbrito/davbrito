@@ -1,5 +1,39 @@
 {
-  "version": "2",
+  "version": "5",
+  "specifiers": {
+    "jsr:@std/collections@^1.1.1": "1.1.1",
+    "jsr:@std/front-matter@*": "1.0.9",
+    "jsr:@std/front-matter@^1.0.9": "1.0.9",
+    "jsr:@std/toml@^1.0.3": "1.0.8",
+    "jsr:@std/yaml@^1.0.5": "1.0.8",
+    "npm:zod@*": "3.20.2"
+  },
+  "jsr": {
+    "@std/collections@1.1.1": {
+      "integrity": "eff6443fbd9d5a6697018fb39c5d13d5f662f0045f21392d640693d0008ab2af"
+    },
+    "@std/front-matter@1.0.9": {
+      "integrity": "ee6201d06674cbef137dda2252f62477450b48249e7d8d9ab57a30f85ff6f051",
+      "dependencies": [
+        "jsr:@std/toml",
+        "jsr:@std/yaml"
+      ]
+    },
+    "@std/toml@1.0.8": {
+      "integrity": "eb8ae76b4cc1c6c13f2a91123675823adbec2380de75cd3748c628960d952164",
+      "dependencies": [
+        "jsr:@std/collections"
+      ]
+    },
+    "@std/yaml@1.0.8": {
+      "integrity": "90b8aab62995e929fa0ea5f4151c287275b63e321ac375c35ff7406ca60c169d"
+    }
+  },
+  "npm": {
+    "zod@3.20.2": {
+      "integrity": "sha512-1MzNQdAvO+54H+EaK5YpyEy0T+Ejo/7YLHS93G3RnYWh5gaotGHwGeN/ZO687qEDU2y4CdStQYXVHIgrUl5UVQ=="
+    }
+  },
   "remote": {
     "https://deno.land/std@0.170.0/_util/asserts.ts": "d0844e9b62510f89ce1f9878b046f6a57bf88f208a10304aab50efcb48365272",
     "https://deno.land/std@0.170.0/_util/os.ts": "8a33345f74990e627b9dfe2de9b040004b08ea5146c7c9e8fe9a29070d193934",
@@ -88,13 +122,10 @@
     "https://deno.land/std@0.170.0/streams/writer_from_stream_writer.ts": "eee7964dc30acc74a02fc52f98f3a4fd46d1382d7897859b21eeebbd0a754ec6",
     "https://deno.land/std@0.170.0/streams/zip_readable_streams.ts": "17d5e6625a60ae4268dfd1ddb9aefa3c7f048ed854d4c20d4c05b646dc0e006b"
   },
-  "npm": {
-    "specifiers": { "zod": "zod@3.20.2" },
-    "packages": {
-      "zod@3.20.2": {
-        "integrity": "sha512-1MzNQdAvO+54H+EaK5YpyEy0T+Ejo/7YLHS93G3RnYWh5gaotGHwGeN/ZO687qEDU2y4CdStQYXVHIgrUl5UVQ==",
-        "dependencies": {}
-      }
-    }
+  "workspace": {
+    "dependencies": [
+      "jsr:@std/collections@^1.1.1",
+      "jsr:@std/front-matter@^1.0.9"
+    ]
   }
 }

@@ -1,7 +1,6 @@
 import { z } from "npm:zod";
-import { chunk } from "std/collections/chunk.ts";
-import { extract } from "std/encoding/front_matter/yaml.ts";
-import { readableStreamFromIterable } from "std/streams/mod.ts";
+import { chunk } from "@std/collections/chunk";
+import { extract } from "jsr:@std/front-matter/yaml";
 import { FormatTransform } from "./format.ts";
 import { createImage } from "./markdown.ts";
 import { getPins } from "./pin.ts";
@@ -63,7 +62,7 @@ const file = await Deno.open("README.md", {
   truncate: true,
 });
 
-await readableStreamFromIterable([final])
+await ReadableStream.from([final])
   .pipeThrough(new TextEncoderStream())
   .pipeThrough(new FormatTransform("md"))
   .pipeTo(file.writable);

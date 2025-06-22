@@ -1,10 +1,11 @@
 {
   "tasks": {
-    "build": "deno run --allow-run --allow-read --allow-write=README.md,assets --allow-net --allow-env --unstable ./src/main.ts"
+    "build": "deno run --allow-read --allow-write=README.md --allow-run ./src/main.ts"
   },
   "compilerOptions": {},
   "lock": true,
   "imports": {
-    "std": "https://deno.land/std@0.170.0"
+    "@std/collections": "jsr:@std/collections@^1.1.1",
+    "@std/front-matter": "jsr:@std/front-matter@^1.0.9"
   }
 }
