@@ -34,9 +34,9 @@ export function renderPersonalProjects(projects: Project[]) {
     <table>
       {projects.map(({ name, url, description }, index) => (
         <tr key={index}>
-          <th style="vertical-align: top">
+          <th style={{ verticalAlign: "top" }} align="left">
             <span>
-              {name} <a href={url}>🔗</a>
+              <a href={url}>{name}</a>
             </span>
           </th>
           <td>{description}</td>
