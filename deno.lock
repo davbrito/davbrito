@@ -9,7 +9,8 @@
     "npm:@types/node@*": "22.10.1",
     "npm:preact-render-to-string@^6.5.13": "6.5.13_preact@10.26.9",
     "npm:preact@^10.26.9": "10.26.9",
-    "npm:zod@*": "3.20.2"
+    "npm:zod@*": "3.20.2",
+    "npm:zod@^3.25.67": "3.25.67"
   },
   "jsr": {
     "@std/collections@1.1.1": {
@@ -53,6 +54,9 @@
     },
     "zod@3.20.2": {
       "integrity": "sha512-1MzNQdAvO+54H+EaK5YpyEy0T+Ejo/7YLHS93G3RnYWh5gaotGHwGeN/ZO687qEDU2y4CdStQYXVHIgrUl5UVQ=="
+    },
+    "zod@3.25.67": {
+      "integrity": "sha512-idA2YXwpCdqUSKRCACDE6ItZD9TZzy3OZMtpfLoh6oPR47lipysRrJfjzMqFxQ3uJuUPyUeWe1r9vLH33xO/Qw=="
     }
   },
   "remote": {
@@ -148,7 +152,8 @@
       "jsr:@std/collections@^1.1.1",
       "jsr:@std/front-matter@^1.0.9",
       "npm:preact-render-to-string@^6.5.13",
-      "npm:preact@^10.26.9"
+      "npm:preact@^10.26.9",
+      "npm:zod@^3.25.67"
     ]
   }
 }
