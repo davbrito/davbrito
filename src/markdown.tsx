@@ -1,4 +1,3 @@
-import { renderToString } from "preact-render-to-string";
 import { JSX } from "preact";
 
 export function createPicture({
@@ -15,7 +14,7 @@ export function createPicture({
   alt?: string;
   style?: JSX.CSSProperties;
 }) {
-  return renderToString(
+  return (
     <picture>
       {sources.map(({ srcset, media }, index) => (
         <source srcSet={srcset} media={media} key={index} />
@@ -27,19 +26,23 @@ export function createPicture({
   );
 }
 
-export function createImage({
+export function createImageHtml({
   src,
   alt,
   style,
 }: {
   src: string;
   alt: string;
-  style?: JSX.CSSProperties;
+  style: JSX.CSSProperties;
 }) {
   if (style) {
-    return renderToString(<img src={src} alt={alt} style={style} />);
+    return <img src={src} alt={alt} style={style} />;
   }
 
+  return createImageMd({ alt, src });
+}
+
+export function createImageMd({ alt, src }: { alt: string; src: string }) {
   return `![${alt}](${src})`;
 }
 
@@ -52,5 +55,5 @@ export function createImageLink({
   linkHref: string;
   altText: string;
 }) {
-  return `[${createImage({ alt: altText, src: imageSrc })}](${linkHref})`;
+  return `[${createImageMd({ alt: altText, src: imageSrc })}](${linkHref})`;
 }

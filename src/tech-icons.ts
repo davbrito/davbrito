@@ -1,4 +1,4 @@
-import { createImage } from "./markdown.tsx";
+import { createImageHtml } from "./markdown.tsx";
 
 const iconUrls = {
   vite: "https://vitejs.dev/logo.svg",
@@ -27,7 +27,7 @@ export const ICON_REGEXP = new RegExp(
 
 export function renderIcon(name: string) {
   if (name in iconUrls) {
-    return createImage({
+    return createImageHtml({
       src: iconUrls[name as keyof typeof iconUrls],
       alt: name,
       style: {

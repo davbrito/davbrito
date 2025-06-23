@@ -5,7 +5,7 @@ import {
   renderFavRepos,
   renderPersonalProjects,
 } from "./helpers.tsx";
-import { createImage } from "./markdown.tsx";
+import { createImageMd } from "./markdown.tsx";
 import { ICON_REGEXP, renderIcon } from "./tech-icons.ts";
 import { processTemplate } from "./template.ts";
 
@@ -20,12 +20,12 @@ const final = await processTemplate(
     const { username, favRepos, personal } = attrs;
 
     replace(/\{\s*([a-zA-Z0-9_]+)\s*\}/g, {
-      userStats: createImage({
+      userStats: createImageMd({
         alt: "David's github stats",
         src: createUserStatsImage(username),
       }),
       favRepos: renderFavRepos(favRepos),
-      topLanguages: createImage({
+      topLanguages: createImageMd({
         src: createTopUserLanguagesImage(username),
         alt: "Top Langs",
       }),
