@@ -60,13 +60,15 @@ Here are some ideas to get you started:
 
 Welcome to my GitHub! I'm a passionate web developer with experience in both frontend and backend development. I love working with JavaScript/TypeScript and have skills in a variety of tools and technologies, including React :react:, TypeScript :ts:, Node.js :node:, Deno :deno:, Next.js :nextjs:, Vite :vite: and PostCSS :postcss:.
 
-#### Personal Projects
+### Personal Projects
 
 {personalProjects}
 
 I'm proud of these projects and hope you find them useful. If you have any questions or feedback, feel free to reach out to me.
 
-#### Contact me
+---
+
+### Contact me
 
 If you'd like to collaborate on any of my projects or have any questions about my skills, feel free to get in touch. You can find me on Twitter as [@dv_brito](https://twitter.com/dv_brito). You can also visit my [LinkedIn profile](https://www.linkedin.com/in/dv-brito/) to learn more about my experience and skills.
 
