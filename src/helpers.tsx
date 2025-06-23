@@ -54,6 +54,7 @@ export function renderPersonalProjects(projects: Project[]) {
               <a href={url}>{name}</a>
             </dt>
             <dd>{description}</dd>
+            <hr />
           </Fragment>
         ))}
       </dl>
