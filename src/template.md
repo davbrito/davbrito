@@ -46,6 +46,7 @@ Welcome to my GitHub! I'm a passionate web developer with experience in both fro
 #### Personal Projects
 
 - [IteretiJS](https://github.com/davbrito/iteretijs): is a set of JavaScript iterator, generator, and web stream utilities. It's a lightweight library that provides a convenient way to work with streams and iterators in JavaScript, allowing you to write more efficient and maintainable code. It includes utilities such as map, filter, reduce, take, and skip, as well as utilities for working with web streams.
+- [minurl](https://github.com/davbrito/minurl): a simple URL shortener built for Cloudflare Pages and using Clodflare Workers KV. It allows you to create short URLs that redirect to long URLs, making it easy to share links on social media or in emails.
 - [Minisignal](https://github.com/davbrito/minisignal): A tiny preact signal-like library. It provides a simple way to create and manage state in your React applications, allowing you to easily update your UI based on changes in your application state, while avoiding unnecessary rerenders. It's lightweight and easy to use.
 - [dbds](https://github.com/davbrito/dbds): DBDS is a C library of common data structures, including binary trees, vectors, sorted sets, and sorted maps. It provides a fast and efficient way to work with data in C programs, making it a great choice for performance-critical applications. It's also designed to be easy to use and integrate into your existing C codebase.
 
