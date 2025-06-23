@@ -38,6 +38,10 @@ and PostCSS
   allowing you to write more efficient and maintainable code. It includes
   utilities such as map, filter, reduce, take, and skip, as well as utilities
   for working with web streams.
+- [minurl](https://github.com/davbrito/minurl): a simple URL shortener built for
+  Cloudflare Pages and using Clodflare Workers KV. It allows you to create short
+  URLs that redirect to long URLs, making it easy to share links on social media
+  or in emails.
 - [Minisignal](https://github.com/davbrito/minisignal): A tiny preact
   signal-like library. It provides a simple way to create and manage state in
   your React applications, allowing you to easily update your UI based on
