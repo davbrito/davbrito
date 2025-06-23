@@ -20,27 +20,25 @@ const emojis = {
   "styled-components": "💅",
 };
 
-const pattern = new RegExp(
+export const ICON_REGEXP = new RegExp(
   `:(${[...Object.keys(emojis), ...Object.keys(iconUrls)].join("|")}):`,
   "ig"
 );
 
-export function replaceTechIcons(text: string) {
-  return text.replace(pattern, (original, tech) => {
-    if (tech in iconUrls) {
-      return createImage({
-        src: iconUrls[tech as keyof typeof iconUrls],
-        alt: tech,
-        style: {
-          width: "1em",
-          height: "1em",
-          verticalAlign: "middle",
-        },
-      });
-    }
+export function renderIcon(name: string) {
+  if (name in iconUrls) {
+    return createImage({
+      src: iconUrls[name as keyof typeof iconUrls],
+      alt: name,
+      style: {
+        width: "1em",
+        height: "1em",
+        verticalAlign: "middle",
+      },
+    });
+  }
 
-    if (tech in emojis) return emojis[tech as keyof typeof emojis];
+  if (name in emojis) return emojis[name as keyof typeof emojis];
 
-    return original;
-  });
+  return undefined;
 }

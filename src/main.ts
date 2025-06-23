@@ -1,11 +1,9 @@
-import { isValidElement } from "preact";
-import { render } from "preact-render-to-string";
 import { FormatTransform } from "./format.ts";
 import { renderFavRepos, renderPersonalProjects } from "./helpers.tsx";
 import { createImage } from "./markdown.tsx";
 import { createUserStatsImage } from "./stats.ts";
-import { replaceTechIcons } from "./tech-icons.ts";
-import { parseTemplate } from "./template.ts";
+import { ICON_REGEXP, renderIcon } from "./tech-icons.ts";
+import { Template } from "./template.ts";
 import { createTopUserLanguagesImage } from "./top_langs.ts";
 
 addEventListener("unhandledrejection", (event) => {
@@ -13,41 +11,28 @@ addEventListener("unhandledrejection", (event) => {
   Deno.exit(1);
 });
 
-const { username, favRepos, body, personal } = await parseTemplate();
+const template = new Template(new URL("./template.md", import.meta.url));
 
-const [favReposContent, topLanguages, userStats] = await Promise.all([
-  renderFavRepos(favRepos),
-  createTopUserLanguagesImage(username),
-  createUserStatsImage(username),
-]);
+const final = await template.produce(async (attrs, replace) => {
+  const { username, favRepos, personal } = attrs;
+  const [favReposContent, topLanguages, userStats] = await Promise.all([
+    renderFavRepos(favRepos),
+    createTopUserLanguagesImage(username),
+    createUserStatsImage(username),
+  ]);
 
-const templateContext = {
-  userStats: createImage({
-    alt: "David's github stats",
-    src: userStats,
-  }),
-  favRepos: favReposContent,
-  topLanguages: createImage({ src: topLanguages, alt: "Top Langs" }),
-  personalProjects: renderPersonalProjects(personal),
-};
-
-function replaceTemlateContext(text: string) {
-  return text.replace(/\{\s*([a-zA-Z0-9_]+)\s*\}/g, (str, key) => {
-    if (!(key in templateContext)) return str;
-    const value = templateContext[key as keyof typeof templateContext];
-
-    if (isValidElement(value)) {
-      return render(value);
-    }
-
-    return String(value);
+  replace(/\{\s*([a-zA-Z0-9_]+)\s*\}/g, {
+    userStats: createImage({
+      alt: "David's github stats",
+      src: userStats,
+    }),
+    favRepos: favReposContent,
+    topLanguages: createImage({ src: topLanguages, alt: "Top Langs" }),
+    personalProjects: renderPersonalProjects(personal),
   });
-}
 
-const final = [replaceTechIcons, replaceTemlateContext].reduce(
-  (acc, fn) => fn(acc),
-  body
-);
+  replace(ICON_REGEXP, renderIcon);
+});
 
 const file = await Deno.open("README.md", {
   create: true,
