@@ -44,46 +44,6 @@ function replaceTemlateMatches(
   });
 }
 
-export class Template {
-  #path: URL;
-  #attributes: z.infer<typeof attributesSchema> | undefined;
-  #body: string = "";
-
-  constructor(path: URL) {
-    this.#path = path;
-  }
-
-  get attributes() {
-    if (this.#attributes === undefined) {
-      throw new Error("Template attributes are not parsed yet.");
-    }
-    return this.#attributes;
-  }
-
-  async produce(fn: PrepareFunction) {
-    const templateFile = await Deno.readTextFile(this.#path);
-
-    const { attrs, body } = extract(templateFile);
-
-    const attributes = attributesSchema.parse(attrs);
-    this.#attributes = attributes;
-    this.#body = body;
-
-    let result = this.#body;
-
-    const replace = (
-      regexp: RegExp,
-      context: Record<string, unknown> | ((key: string) => unknown)
-    ) => {
-      result = replaceTemlateMatches(result, regexp, context);
-    };
-
-    await fn?.(attributes, replace);
-
-    return result;
-  }
-}
-
 type PrepareFunction = (
   attrs: z.infer<typeof attributesSchema>,
   replace: (
@@ -91,3 +51,24 @@ type PrepareFunction = (
     context: Record<string, unknown> | ((key: string) => unknown)
   ) => void
 ) => void | Promise<void>;
+
+export async function processTemplate(path: URL, fn: PrepareFunction) {
+  const templateFile = await Deno.readTextFile(path);
+
+  const { attrs, body } = extract(templateFile);
+
+  const attributes = attributesSchema.parse(attrs);
+
+  let result = body;
+
+  const replace = (
+    regexp: RegExp,
+    context: Record<string, unknown> | ((key: string) => unknown)
+  ) => {
+    result = replaceTemlateMatches(result, regexp, context);
+  };
+
+  await fn?.(attributes, replace);
+
+  return result;
+}

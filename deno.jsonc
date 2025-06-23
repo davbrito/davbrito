@@ -10,6 +10,7 @@
   "imports": {
     "@std/collections": "jsr:@std/collections@^1.1.1",
     "@std/front-matter": "jsr:@std/front-matter@^1.0.9",
+    "@std/path": "jsr:@std/path@^1.1.0",
     "preact": "npm:preact@^10.26.9",
     "preact-render-to-string": "npm:preact-render-to-string@^6.5.13",
     "zod": "npm:zod@^3.25.67"

@@ -1,4 +1,4 @@
-import { join } from "std/path/mod.ts";
+import { join } from "@std/path";
 import { ASSETS_DIR } from "./constants.ts";
 
 function getImagePath(filename: string) {

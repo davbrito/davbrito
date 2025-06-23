@@ -4,6 +4,7 @@
     "jsr:@std/collections@^1.1.1": "1.1.1",
     "jsr:@std/front-matter@*": "1.0.9",
     "jsr:@std/front-matter@^1.0.9": "1.0.9",
+    "jsr:@std/path@^1.1.0": "1.1.0",
     "jsr:@std/toml@^1.0.3": "1.0.8",
     "jsr:@std/yaml@^1.0.5": "1.0.8",
     "npm:@types/node@*": "22.10.1",
@@ -22,6 +23,9 @@
         "jsr:@std/toml",
         "jsr:@std/yaml"
       ]
+    },
+    "@std/path@1.1.0": {
+      "integrity": "ddc94f8e3c275627281cbc23341df6b8bcc874d70374f75fec2533521e3d6886"
     },
     "@std/toml@1.0.8": {
       "integrity": "eb8ae76b4cc1c6c13f2a91123675823adbec2380de75cd3748c628960d952164",
@@ -151,6 +155,7 @@
     "dependencies": [
       "jsr:@std/collections@^1.1.1",
       "jsr:@std/front-matter@^1.0.9",
+      "jsr:@std/path@^1.1.0",
       "npm:preact-render-to-string@^6.5.13",
       "npm:preact@^10.26.9",
       "npm:zod@^3.25.67"

@@ -1,7 +1,23 @@
 import { chunk } from "@std/collections/chunk";
-import { getPinImageUrl } from "./pin.ts";
-import { Project, Repo } from "./template.ts";
 import { Fragment } from "preact";
+import { getGithubReadmeStatsUrl } from "./github_readme_stats.ts";
+import { Project, Repo } from "./template.ts";
+
+function getPinImageUrl(username: string, repo: string) {
+  return getGithubReadmeStatsUrl("./pin/", { username, repo });
+}
+
+export function createTopUserLanguagesImage(username: string) {
+  return getGithubReadmeStatsUrl("./top-langs/", {
+    username,
+    langs_count: "6",
+    layout: "compact",
+  }).href;
+}
+
+export function createUserStatsImage(username: string) {
+  return getGithubReadmeStatsUrl(".", { username, show_icons: "true" }).href;
+}
 
 export function renderFavRepos(pinImages: Repo[]) {
   return (
