@@ -20,10 +20,7 @@ const emojis = {
   "styled-components": "💅",
 };
 
-export const ICON_REGEXP = new RegExp(
-  `:(${[...Object.keys(emojis), ...Object.keys(iconUrls)].join("|")}):`,
-  "ig"
-);
+export const ICON_REGEXP = /\:([a-z0-9-_]+)\:/gi;
 
 export function renderIcon(name: string) {
   if (name in iconUrls) {
