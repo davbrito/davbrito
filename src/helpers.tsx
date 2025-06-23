@@ -1,6 +1,7 @@
 import { chunk } from "@std/collections/chunk";
 import { getPinImageUrl } from "./pin.ts";
 import { Project, Repo } from "./template.ts";
+import { Fragment } from "preact";
 
 export function renderFavRepos(pinImages: Repo[]) {
   return (
@@ -31,17 +32,15 @@ export function renderFavRepos(pinImages: Repo[]) {
 
 export function renderPersonalProjects(projects: Project[]) {
   return (
-    <table>
+    <dl>
       {projects.map(({ name, url, description }, index) => (
-        <tr key={index}>
-          <th style={{ verticalAlign: "top" }} align="left">
-            <span>
-              <a href={url}>{name}</a>
-            </span>
-          </th>
-          <td>{description}</td>
-        </tr>
+        <Fragment key={index}>
+          <dt>
+            <a href={url}>{name}</a>
+          </dt>
+          <dd>{description}</dd>
+        </Fragment>
       ))}
-    </table>
+    </dl>
   );
 }
