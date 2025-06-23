@@ -32,15 +32,31 @@ export function renderFavRepos(pinImages: Repo[]) {
 
 export function renderPersonalProjects(projects: Project[]) {
   return (
-    <dl>
-      {projects.map(({ name, url, description }, index) => (
-        <Fragment key={index}>
-          <dt>
-            <a href={url}>{name}</a>
-          </dt>
-          <dd>{description}</dd>
-        </Fragment>
-      ))}
-    </dl>
+    <>
+      <table>
+        {projects.map(({ name, url, description }, index) => (
+          <tr key={index}>
+            <th
+              align="left"
+              // @ts-expect-error Preact doesn't have `valign` but it's used in markdown
+              valign="top"
+            >
+              <a href={url}>{name}</a>
+            </th>
+            <td>{description}</td>
+          </tr>
+        ))}
+      </table>
+      <dl>
+        {projects.map(({ name, url, description }, index) => (
+          <Fragment key={index}>
+            <dt>
+              <a href={url}>{name}</a>
+            </dt>
+            <dd>{description}</dd>
+          </Fragment>
+        ))}
+      </dl>
+    </>
   );
 }
