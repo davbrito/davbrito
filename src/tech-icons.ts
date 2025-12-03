@@ -20,7 +20,7 @@ const emojis = {
   "styled-components": "💅",
 };
 
-export const ICON_REGEXP = /\:([a-z0-9-_]+)\:/gi;
+export const ICON_REGEXP = /:([a-z0-9-_]+):/gi;
 
 export function renderIcon(name: string) {
   if (name in iconUrls) {

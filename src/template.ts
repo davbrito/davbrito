@@ -1,7 +1,8 @@
 import { extract } from "@std/front-matter/yaml";
-import { z } from "zod/v4";
+import { readFileSync } from "node:fs";
 import { isValidElement } from "preact";
 import { render } from "preact-render-to-string";
+import { z } from "zod/v4";
 
 const attributesSchema = z.object({
   username: z.string(),
@@ -50,16 +51,15 @@ type PrepareFunction = (
     regexp: RegExp,
     context: Record<string, unknown> | ((key: string) => unknown)
   ) => void
-) => void | Promise<void>;
+) => void;
 
-export async function processTemplate(path: URL, fn: PrepareFunction) {
-  const templateFile = await Deno.readTextFile(path);
-
+export function processTemplate(path: URL | string, fn: PrepareFunction) {
+  const templateFile = readFileSync(path, "utf-8");
   const { attrs, body } = extract(templateFile);
 
   const attributes = attributesSchema.parse(attrs);
 
-  let result = body;
+  let result: string = body;
 
   const replace = (
     regexp: RegExp,
@@ -68,7 +68,7 @@ export async function processTemplate(path: URL, fn: PrepareFunction) {
     result = replaceTemlateMatches(result, regexp, context);
   };
 
-  await fn?.(attributes, replace);
+  fn?.(attributes, replace);
 
   return result;
 }

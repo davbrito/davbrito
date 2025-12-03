@@ -1,5 +1,3 @@
-import { JSX } from "preact";
-
 export function createPicture({
   sources,
   fallback,
@@ -12,7 +10,7 @@ export function createPicture({
   }[];
   fallback?: string;
   alt?: string;
-  style?: JSX.CSSProperties;
+  style?: preact.CSSProperties;
 }) {
   return (
     <picture>
@@ -33,7 +31,7 @@ export function createImageHtml({
 }: {
   src: string;
   alt: string;
-  style: JSX.CSSProperties;
+  style: preact.CSSProperties;
 }) {
   if (style) {
     return <img src={src} alt={alt} style={style} />;

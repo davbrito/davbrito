@@ -1,7 +1,7 @@
 import { chunk } from "@std/collections/chunk";
 import { Fragment } from "preact";
 import { getGithubReadmeStatsUrl } from "./github_readme_stats.ts";
-import { Project, Repo } from "./template.ts";
+import type { Project, Repo } from "./template.ts";
 
 function getPinImageUrl(username: string, repo: string) {
   return getGithubReadmeStatsUrl("./pin/", { username, repo });

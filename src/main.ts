@@ -1,4 +1,5 @@
-import { FormatTransform } from "./format.ts";
+import { writeFileSync } from "node:fs";
+import * as prettier from "prettier";
 import {
   createTopUserLanguagesImage,
   createUserStatsImage,
@@ -9,42 +10,36 @@ import { createImageMd } from "./markdown.tsx";
 import { ICON_REGEXP, renderIcon } from "./tech-icons.ts";
 import { processTemplate } from "./template.ts";
 
-addEventListener("unhandledrejection", (event) => {
-  console.error(event.reason);
-  Deno.exit(1);
+process.on("unhandledRejection", (error) => {
+  console.error(error);
+  process.exit(1);
 });
 
-const final = await processTemplate(
-  new URL("./template.md", import.meta.url),
-  (attrs, replace) => {
-    const { username, favRepos, personal } = attrs;
+const PLACEHOLDER_REGEX = () => /\{\s*([a-zA-Z0-9_]+)\s*\}/g;
 
-    replace(/\{\s*([a-zA-Z0-9_]+)\s*\}/g, {
-      userStats: createImageMd({
-        alt: "David's github stats",
-        src: createUserStatsImage(username),
-      }),
-      favRepos: renderFavRepos(favRepos),
-      topLanguages: createImageMd({
-        src: createTopUserLanguagesImage(username),
-        alt: "Top Langs",
-      }),
-      personalProjects: renderPersonalProjects(personal),
-    });
+const templatePath = new URL(import.meta.resolve("./template.md"));
 
-    replace(ICON_REGEXP, renderIcon);
-  }
-);
+let result = processTemplate(templatePath, (attrs, replace) => {
+  const { username, favRepos, personal } = attrs;
 
-const file = await Deno.open("README.md", {
-  create: true,
-  write: true,
-  truncate: true,
+  replace(PLACEHOLDER_REGEX(), {
+    userStats: createImageMd({
+      alt: "David's github stats",
+      src: createUserStatsImage(username),
+    }),
+    favRepos: renderFavRepos(favRepos),
+    topLanguages: createImageMd({
+      src: createTopUserLanguagesImage(username),
+      alt: "Top Langs",
+    }),
+    personalProjects: renderPersonalProjects(personal),
+  });
+
+  replace(ICON_REGEXP, renderIcon);
 });
 
-await ReadableStream.from([final])
-  .pipeThrough(new TextEncoderStream())
-  .pipeThrough(new FormatTransform("md"))
-  .pipeTo(file.writable);
+result = await prettier.format(result, { parser: "markdown" });
 
-console.log("README created successfuly 🎉");
+writeFileSync("README.md", result, { encoding: "utf-8" });
+
+console.log("README created successfully 🎉");
