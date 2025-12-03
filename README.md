@@ -33,7 +33,7 @@ Thanks for visiting my GitHub!
 
 ---
 
-![David's github stats](https://github-readme-stats.vercel.app/api/?username=davbrito&show_icons=true)
+![David's github stats](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=davbrito&theme=github)
 
 ### My fav repos
 
@@ -41,7 +41,7 @@ Thanks for visiting my GitHub!
 
 ### Top languages on GitHub
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=davbrito&langs_count=6&layout=compact)
+![Top Langs](https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=davbrito&theme=github)
 
 > All the stats are generated with
-> [github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
+> [github-profile-summary-cards](https://github.com/vn7n24fzkq/github-profile-summary-cards)

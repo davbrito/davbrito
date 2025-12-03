@@ -87,4 +87,4 @@ Thanks for visiting my GitHub!
 {topLanguages}
 
 > All the stats are generated with
-> [github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
+> [github-profile-summary-cards](https://github.com/vn7n24fzkq/github-profile-summary-cards)

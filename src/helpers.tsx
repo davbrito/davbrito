@@ -8,15 +8,11 @@ function getPinImageUrl(username: string, repo: string) {
 }
 
 export function createTopUserLanguagesImage(username: string) {
-  return getGithubReadmeStatsUrl("./top-langs/", {
-    username,
-    langs_count: "6",
-    layout: "compact",
-  }).href;
+  return `https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=${username}&theme=github`;
 }
 
 export function createUserStatsImage(username: string) {
-  return getGithubReadmeStatsUrl(".", { username, show_icons: "true" }).href;
+  return `https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=${username}&theme=github`;
 }
 
 export function renderFavRepos(pinImages: Repo[]) {
