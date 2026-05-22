@@ -5,24 +5,19 @@
     // File Layout
     // "rootDir": "./src",
     // "outDir": "./dist",
-
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "noEmit": true,
-    "lib": [
-      "es2024",
-      "ESNext.Array",
-      "ESNext.Collection",
-      "ESNext.Iterator",
-      "ESNext.Promise",
-      "ESNext.AsyncIterable"
+    "types": [
+      "node"
     ],
-
+    "lib": [
+      "ES2025"
+    ],
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "allowImportingTsExtensions": true,
-
     // Recommended Options
     "strict": true,
     "jsx": "react-jsx",
@@ -32,5 +27,8 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true
-  }
+  },
+  "include": [
+    "src"
+  ]
 }
