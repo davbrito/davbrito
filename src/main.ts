@@ -1,5 +1,6 @@
-import { writeFileSync } from "node:fs";
+import { mkdirSync, writeFileSync } from "node:fs";
 import * as prettier from "prettier";
+import { ASSETS_DIR } from "./constants.ts";
 import {
   createTopUserLanguagesImage,
   createUserStatsImage,
@@ -19,7 +20,9 @@ const PLACEHOLDER_REGEX = () => /\{\s*([a-zA-Z0-9_]+)\s*\}/g;
 
 const templatePath = new URL(import.meta.resolve("./template.md"));
 
-let result = processTemplate(templatePath, (attrs, replace) => {
+mkdirSync(ASSETS_DIR, { recursive: true });
+
+let result = await processTemplate(templatePath, async (attrs, replace) => {
   const { username, favRepos, personal } = attrs;
 
   replace(PLACEHOLDER_REGEX(), {

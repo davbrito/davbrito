@@ -37,7 +37,7 @@ Thanks for visiting my GitHub!
 
 ### My fav repos
 
-<table><tr><td>Codi Link<a href="https://github.com/midudev/codi.link"><img src="https://github-readme-stats.vercel.app/api/pin/?username=midudev&amp;repo=codi.link" alt="Codi Link"/></a></td><td>{fmt}<a href="https://github.com/fmtlib/fmt"><img src="https://github-readme-stats.vercel.app/api/pin/?username=fmtlib&amp;repo=fmt" alt="{fmt}"/></a></td><td>lit<a href="https://github.com/lit/lit"><img src="https://github-readme-stats.vercel.app/api/pin/?username=lit&amp;repo=lit" alt="lit"/></a></td></tr><tr><td>Radix UI Primitives 💖<a href="https://github.com/radix-ui/primitives"><img src="https://github-readme-stats.vercel.app/api/pin/?username=radix-ui&amp;repo=primitives" alt="Radix UI Primitives 💖"/></a></td><td>Ariakit<a href="https://github.com/ariakit/ariakit"><img src="https://github-readme-stats.vercel.app/api/pin/?username=ariakit&amp;repo=ariakit" alt="Ariakit"/></a></td><td>Zustand<a href="https://github.com/pmndrs/zustand"><img src="https://github-readme-stats.vercel.app/api/pin/?username=pmndrs&amp;repo=zustand" alt="Zustand"/></a></td></tr><tr><td>TanStack Table<a href="https://github.com/TanStack/table"><img src="https://github-readme-stats.vercel.app/api/pin/?username=TanStack&amp;repo=table" alt="TanStack Table"/></a></td></tr></table>
+[object Promise]
 
 ### Top languages on GitHub
 

@@ -11,14 +11,14 @@ const attributesSchema = z.object({
       name: z.string(),
       username: z.string(),
       repo: z.string(),
-    })
+    }),
   ),
   personal: z.array(
     z.object({
       name: z.string(),
       url: z.url(),
       description: z.string(),
-    })
+    }),
   ),
 });
 
@@ -28,7 +28,7 @@ export type Project = z.infer<typeof attributesSchema>["personal"][number];
 function replaceTemlateMatches(
   text: string,
   regexp: RegExp,
-  context: Record<string, unknown> | ((key: string) => unknown)
+  context: Record<string, unknown> | ((key: string) => unknown),
 ) {
   const getValue =
     typeof context === "function"
@@ -49,11 +49,11 @@ type PrepareFunction = (
   attrs: z.infer<typeof attributesSchema>,
   replace: (
     regexp: RegExp,
-    context: Record<string, unknown> | ((key: string) => unknown)
-  ) => void
-) => void;
+    context: Record<string, unknown> | ((key: string) => unknown),
+  ) => void,
+) => void | Promise<void>;
 
-export function processTemplate(path: URL | string, fn: PrepareFunction) {
+export async function processTemplate(path: URL | string, fn: PrepareFunction) {
   const templateFile = readFileSync(path, "utf-8");
   const { attrs, body } = extract(templateFile);
 
@@ -63,12 +63,12 @@ export function processTemplate(path: URL | string, fn: PrepareFunction) {
 
   const replace = (
     regexp: RegExp,
-    context: Record<string, unknown> | ((key: string) => unknown)
+    context: Record<string, unknown> | ((key: string) => unknown),
   ) => {
     result = replaceTemlateMatches(result, regexp, context);
   };
 
-  fn?.(attributes, replace);
+  await fn?.(attributes, replace);
 
   return result;
 }

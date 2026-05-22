@@ -1,11 +1,12 @@
-export const GITHUB_README_STATS_URL =
-  "https://github-readme-stats.vercel.app/api/";
+import { Octokit } from "octokit";
 
-export function getGithubReadmeStatsUrl(
-  path: string,
-  params: Record<string, string>,
-) {
-  const url = new URL(path, GITHUB_README_STATS_URL);
-  url.search = new URLSearchParams(params).toString();
-  return url;
+const octokit = new Octokit({
+  auth: process.env["GITHUB_TOKEN"],
+});
+
+export async function fetchRepoData(owner: string, repo: string) {
+  const { data } = await octokit.rest.repos.get({ owner, repo });
+  return data;
 }
+
+export type RepoData = Awaited<ReturnType<typeof fetchRepoData>>;

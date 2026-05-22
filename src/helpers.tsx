@@ -1,11 +1,12 @@
 import { chunk } from "@std/collections/chunk";
 import { Fragment } from "preact";
-import { getGithubReadmeStatsUrl } from "./github_readme_stats.ts";
 import type { Project, Repo } from "./template.ts";
+import { ASSETS_DIR } from "./constants.ts";
+import { fetchRepoData } from "./github_readme_stats.ts";
+import { renderRepoPinCard } from "./svg_cards.tsx";
+import { writeFileSync } from "node:fs";
 
-function getPinImageUrl(username: string, repo: string) {
-  return getGithubReadmeStatsUrl("./pin/", { username, repo });
-}
+export type RepoWithImagePath = Repo & { imagePath: string };
 
 export function createTopUserLanguagesImage(username: string) {
   return `https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=${username}&theme=github`;
@@ -15,17 +16,25 @@ export function createUserStatsImage(username: string) {
   return `https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=${username}&theme=github`;
 }
 
-export function renderFavRepos(pinImages: Repo[]) {
+export async function renderFavRepos(favRepos: Repo[]) {
+  const pinReposData = await Promise.all(
+    favRepos.map(({ username: u, repo }) => fetchRepoData(u, repo)),
+  );
+
+  const pinImages = favRepos.map((r, i) => {
+    const repoData = pinReposData[i]!;
+    const filePath = `${ASSETS_DIR}/pin-${r.username}-${r.repo}.svg`;
+    writeFileSync(filePath, renderRepoPinCard(repoData), "utf-8");
+    return { ...r, imagePath: filePath };
+  });
+
   return (
     <table>
       {chunk(pinImages, 3).map((row, rindex) => {
         return (
           <tr key={rindex}>
-            {row.map(({ name, username, repo }, cindex) => {
-              const imageUrl = getPinImageUrl(username, repo);
+            {row.map(({ name, username, repo, imagePath }, cindex) => {
               const repoUrl = `https://github.com/${username}/${repo}`;
-              const imagePath = imageUrl.href;
-
               return (
                 <td key={cindex}>
                   {name}
