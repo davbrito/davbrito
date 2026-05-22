@@ -30,7 +30,7 @@ let result = await processTemplate(templatePath, async (attrs, replace) => {
       alt: "David's github stats",
       src: createUserStatsImage(username),
     }),
-    favRepos: renderFavRepos(favRepos),
+    favRepos: await renderFavRepos(favRepos),
     topLanguages: createImageMd({
       src: createTopUserLanguagesImage(username),
       alt: "Top Langs",
