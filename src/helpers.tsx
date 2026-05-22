@@ -40,7 +40,6 @@ export async function renderFavRepos(favRepos: Repo[]) {
               const repoUrl = `https://github.com/${username}/${repo}`;
               return (
                 <td key={cindex}>
-                  {name}
                   <a href={repoUrl}>
                     {createPicture({
                       sources: [
