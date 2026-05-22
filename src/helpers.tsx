@@ -4,6 +4,7 @@ import type { Project, Repo } from "./template.ts";
 import { ASSETS_DIR } from "./constants.ts";
 import { fetchRepoData } from "./github_readme_stats.ts";
 import { renderRepoPinCard } from "./svg_cards.tsx";
+import { createPicture } from "./markdown.tsx";
 import { writeFileSync } from "node:fs";
 
 export type RepoWithImagePath = Repo & { imagePath: string };
@@ -23,9 +24,11 @@ export async function renderFavRepos(favRepos: Repo[]) {
 
   const pinImages = favRepos.map((r, i) => {
     const repoData = pinReposData[i]!;
-    const filePath = `${ASSETS_DIR}/pin-${r.username}-${r.repo}.svg`;
-    writeFileSync(filePath, renderRepoPinCard(repoData), "utf-8");
-    return { ...r, imagePath: filePath };
+    const darkPath = `${ASSETS_DIR}/pin-${r.username}-${r.repo}-dark.svg`;
+    const lightPath = `${ASSETS_DIR}/pin-${r.username}-${r.repo}-light.svg`;
+    writeFileSync(darkPath, renderRepoPinCard(repoData, "dark"), "utf-8");
+    writeFileSync(lightPath, renderRepoPinCard(repoData, "light"), "utf-8");
+    return { ...r, darkPath, lightPath };
   });
 
   return (
@@ -33,13 +36,26 @@ export async function renderFavRepos(favRepos: Repo[]) {
       {chunk(pinImages, 3).map((row, rindex) => {
         return (
           <tr key={rindex}>
-            {row.map(({ name, username, repo, imagePath }, cindex) => {
+            {row.map(({ name, username, repo, darkPath, lightPath }, cindex) => {
               const repoUrl = `https://github.com/${username}/${repo}`;
               return (
                 <td key={cindex}>
                   {name}
                   <a href={repoUrl}>
-                    <img src={imagePath} alt={name} />
+                    {createPicture({
+                      sources: [
+                        {
+                          media: "(prefers-color-scheme: dark)",
+                          srcset: darkPath,
+                        },
+                        {
+                          media: "(prefers-color-scheme: light)",
+                          srcset: lightPath,
+                        },
+                      ],
+                      fallback: darkPath,
+                      alt: name,
+                    })}
                   </a>
                 </td>
               );
