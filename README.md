@@ -37,7 +37,7 @@ Thanks for visiting my GitHub!
 
 ### My fav repos
 
-[object Promise]
+<table><tr><td>Codi Link<a href="https://github.com/midudev/codi.link"><img src="./assets/pin-midudev-codi.link.svg" alt="Codi Link"/></a></td><td>{fmt}<a href="https://github.com/fmtlib/fmt"><img src="./assets/pin-fmtlib-fmt.svg" alt="{fmt}"/></a></td><td>lit<a href="https://github.com/lit/lit"><img src="./assets/pin-lit-lit.svg" alt="lit"/></a></td></tr><tr><td>Radix UI Primitives 💖<a href="https://github.com/radix-ui/primitives"><img src="./assets/pin-radix-ui-primitives.svg" alt="Radix UI Primitives 💖"/></a></td><td>Ariakit<a href="https://github.com/ariakit/ariakit"><img src="./assets/pin-ariakit-ariakit.svg" alt="Ariakit"/></a></td><td>Zustand<a href="https://github.com/pmndrs/zustand"><img src="./assets/pin-pmndrs-zustand.svg" alt="Zustand"/></a></td></tr><tr><td>TanStack Table<a href="https://github.com/TanStack/table"><img src="./assets/pin-TanStack-table.svg" alt="TanStack Table"/></a></td></tr></table>
 
 ### Top languages on GitHub
 
