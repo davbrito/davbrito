@@ -32,9 +32,17 @@ personal:
     url: https://github.com/davbrito/minurl
     description: a simple URL shortener built for Cloudflare Pages and using Clodflare Workers KV. It allows you to create short URLs that redirect to long URLs, making it easy to share links on social media or in emails.
 
-  - name: Minisignal
-    url: https://github.com/davbrito/minisignal
-    description: A tiny preact signal-like library. It provides a simple way to create and manage state in your React applications, allowing you to easily update your UI based on changes in your application state, while avoiding unnecessary rerenders. It's lightweight and easy to use.
+  - name: Atelier
+    url: https://github.com/davbrito/atelier
+    description: A sewing and tailoring quote generator. Manages materials, labor operations, and generates frozen quotes for clients. Built with TanStack Start, Cloudflare Workers, and PostgreSQL.
+
+  - name: ComeRico
+    url: https://github.com/davbrito/come-rico
+    description: A domestic/family app to plan meals and resolve culinary indecision via a real-time synchronized roulette. Built with ASP.NET Core, SignalR, and TanStack Start.
+
+  - name: Dolar
+    url: https://github.com/davbrito/dolar
+    description: An app to check and track the dollar exchange rate. Built with TanStack Start.
 
   - name: dbds
     url: https://github.com/davbrito/dbds
