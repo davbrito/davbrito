@@ -7,7 +7,7 @@ import {
   renderFavRepos,
   renderPersonalProjects,
 } from "./helpers.tsx";
-import { createImageMd } from "./markdown.tsx";
+import { createPicture } from "./markdown.tsx";
 import { ICON_REGEXP, renderIcon } from "./tech-icons.ts";
 import { processTemplate } from "./template.ts";
 
@@ -26,14 +26,34 @@ let result = await processTemplate(templatePath, async (attrs, replace) => {
   const { username, favRepos, personal } = attrs;
 
   replace(PLACEHOLDER_REGEX(), {
-    userStats: createImageMd({
+    userStats: createPicture({
       alt: "David's github stats",
-      src: createUserStatsImage(username),
+      fallback: createUserStatsImage(username, "github_dark"),
+      sources: [
+        {
+          media: "(prefers-color-scheme: dark)",
+          srcset: createUserStatsImage(username, "github_dark"),
+        },
+        {
+          media: "(prefers-color-scheme: light)",
+          srcset: createUserStatsImage(username, "github"),
+        },
+      ],
     }),
     favRepos: await renderFavRepos(favRepos),
-    topLanguages: createImageMd({
-      src: createTopUserLanguagesImage(username),
+    topLanguages: createPicture({
       alt: "Top Langs",
+      fallback: createTopUserLanguagesImage(username, "github_dark"),
+      sources: [
+        {
+          media: "(prefers-color-scheme: dark)",
+          srcset: createTopUserLanguagesImage(username, "github_dark"),
+        },
+        {
+          media: "(prefers-color-scheme: light)",
+          srcset: createTopUserLanguagesImage(username, "github"),
+        },
+      ],
     }),
     personalProjects: renderPersonalProjects(personal),
   });

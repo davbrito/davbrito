@@ -18,6 +18,7 @@ const attributesSchema = z.object({
       name: z.string(),
       url: z.url(),
       description: z.string(),
+      tech: z.array(z.string()).default([]),
     }),
   ),
 });
@@ -70,5 +71,5 @@ export async function processTemplate(path: URL | string, fn: PrepareFunction) {
 
   await fn?.(attributes, replace);
 
-  return result;
+  return `<!-- This file is generated, do not edit manually -->\n\n${result}`;
 }

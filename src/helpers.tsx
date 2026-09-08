@@ -5,16 +5,20 @@ import { ASSETS_DIR } from "./constants.ts";
 import { fetchRepoData } from "./github_readme_stats.ts";
 import { renderRepoPinCard } from "./svg_cards.tsx";
 import { createPicture } from "./markdown.tsx";
+import { renderTechBadges } from "./tech-badges.tsx";
 import { writeFileSync } from "node:fs";
 
 export type RepoWithImagePath = Repo & { imagePath: string };
 
-export function createTopUserLanguagesImage(username: string) {
-  return `https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=${username}&theme=github`;
+export function createTopUserLanguagesImage(
+  username: string,
+  theme: string = "github",
+) {
+  return `https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=${username}&theme=${theme}`;
 }
 
-export function createUserStatsImage(username: string) {
-  return `https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=${username}&theme=github`;
+export function createUserStatsImage(username: string, theme: string = "github") {
+  return `https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=${username}&theme=${theme}`;
 }
 
 export async function renderFavRepos(favRepos: Repo[]) {
@@ -70,12 +74,20 @@ export function renderPersonalProjects(projects: Project[]) {
   return (
     <>
       <dl>
-        {projects.map(({ name, url, description }, index) => (
+        {projects.map(({ name, url, description, tech }, index) => (
           <Fragment key={index}>
             <dt>
               <a href={url}>{name}</a>
             </dt>
-            <dd>{description}</dd>
+            <dd>
+              {description}
+              {tech.length > 0 ? (
+                <>
+                  <br />
+                  {renderTechBadges(tech)}
+                </>
+              ) : null}
+            </dd>
           </Fragment>
         ))}
       </dl>
