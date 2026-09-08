@@ -1,5 +1,4 @@
 import { chunk } from "@std/collections/chunk";
-import { Fragment } from "preact";
 import type { Project, Repo } from "./template.ts";
 import { ASSETS_DIR } from "./constants.ts";
 import { fetchRepoData } from "./github_readme_stats.ts";
@@ -72,25 +71,25 @@ export async function renderFavRepos(favRepos: Repo[]) {
 
 export function renderPersonalProjects(projects: Project[]) {
   return (
-    <>
-      <dl>
+    <table>
+      <thead>
+        <tr>
+          <th>Project</th>
+          <th>Description</th>
+          <th>Stack</th>
+        </tr>
+      </thead>
+      <tbody>
         {projects.map(({ name, url, description, tech }, index) => (
-          <Fragment key={index}>
-            <dt>
+          <tr key={index}>
+            <td>
               <a href={url}>{name}</a>
-            </dt>
-            <dd>
-              {description}
-              {tech.length > 0 ? (
-                <>
-                  <br />
-                  {renderTechBadges(tech)}
-                </>
-              ) : null}
-            </dd>
-          </Fragment>
+            </td>
+            <td>{description}</td>
+            <td>{tech.length > 0 ? renderTechBadges(tech) : null}</td>
+          </tr>
         ))}
-      </dl>
-    </>
+      </tbody>
+    </table>
   );
 }

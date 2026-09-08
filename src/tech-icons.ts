@@ -9,6 +9,8 @@ const iconUrls = {
   react: "https://github.com/gilbarbara/logos/raw/main/logos/react.svg",
   js: "https://github.com/gilbarbara/logos/blob/main/logos/javascript.svg",
   nextjs: "https://github.com/gilbarbara/logos/raw/main/logos/nextjs-icon.svg",
+  dotnet: "https://github.com/gilbarbara/logos/raw/main/logos/dotnet.svg",
+  cs: "https://github.com/gilbarbara/logos/raw/main/logos/c-sharp.svg",
 };
 
 const emojis = {
@@ -16,7 +18,6 @@ const emojis = {
   python: "🐍",
   cpp: "🟣",
   c: "🟤",
-  cs: "🟡",
   "styled-components": "💅",
 };
 

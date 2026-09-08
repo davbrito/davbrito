@@ -10,9 +10,9 @@ favRepos:
   - name: lit
     username: lit
     repo: lit
-  - name: Radix UI Primitives 💖
-    username: radix-ui
-    repo: primitives
+  - name: Base UI
+    username: mui
+    repo: base-ui
   - name: Ariakit
     username: ariakit
     repo: ariakit
@@ -22,6 +22,12 @@ favRepos:
   - name: TanStack Table
     username: TanStack
     repo: table
+  - name: Vite
+    username: vitejs
+    repo: vite
+  - name: Tailwind CSS
+    username: tailwindlabs
+    repo: tailwindcss
 
 personal:
   - name: Dolar
