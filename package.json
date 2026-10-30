@@ -28,7 +28,7 @@
     "octokit": "^5.0.5",
     "preact": "^10.29.2",
     "preact-render-to-string": "^6.7.0",
-    "prettier": "^3.8.3",
+    "prettier": "^3.9.10",
     "tsx": "^4.22.3",
     "zod": "^4.6.6"
   }
